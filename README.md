@@ -1,2 +1,2 @@
 # fcc-daily-puzzle
-Free Code Camp Daily Puzzle Solutions
+Free Code Camp daily challenge solutions
