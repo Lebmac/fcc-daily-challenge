@@ -1,0 +1,77 @@
+/* 
+=== Rock, Paper, Scissors ====
+Given two strings, 
+the first representing Player 1 and 
+the second representing Player 2, 
+determine the winner of a match of Rock, Paper, Scissors.
+
+=== The input strings will always be ===
+"Rock", "Paper", or "Scissors".
+
+=== Functionality ===
+"Rock" beats "Scissors".
+"Paper" beats "Rock".
+"Scissors" beats "Paper".
+Return:
+
+=== Output ===
+"Player 1 wins" if Player 1 wins.
+"Player 2 wins" if Player 2 wins.
+"Tie" if both players choose the same option. 
+
+=== My solution === */
+
+function rockPaperScissors(player1, player2) {
+  let options = {
+    Rock: 0,
+    Paper: 1,
+    Scissors: 2,
+  };
+  let results = [
+    "Tie",
+    "Player 1 wins",
+    "Player 2 wins"
+  ];
+
+  let p1 = options[player1];
+  let p2 = options[player2];
+  let result = (p1 - p2);
+
+  return results.at(result);
+}
+
+/*
+=== Why did I build it this way? === 
+1.  I wanted to keep input and output definitions clearly grouped so that options
+    and outcomes were clear to the reader. In essence self documenting the shape
+    of the function.
+
+2.  I was curious to explore what patterns emerged that consistently indicate
+    winning or losing outcomes for the players.
+    I considered whether:
+    1.  some always positive-and-even AND negative-and-odd
+        relationship could exist between the input pairs after subtraction, but be
+        inversed for each player.
+    2.  some use of unique primes to represent player 1 and 2 inputs might yeild
+        unique outputs which can be easily interpreted for selecting the winner.
+        I intended to use this with modulo to simmer down to a value between 0-2,
+        where each could be tied to the 3 outputs specified in the brief.
+
+    UNUSUAL FINDING:
+    I found during exploration that excel modulo and js modulo behave differently with
+    negative numbers, where excel modulo always produces a positive number - and infact
+    always the same number for function "=MOD((p1 - p2), selector)" which was a nice
+    trick. This find was a delightful find, but ultimately unnecessary, as point 2.1
+    above turned out to be true, and js accepts negative indexes in arrays.
+
+3.  I found this end solution elegant and clear, and exploits a not so obvious, but
+    simple, relationship between player choices.
+
+4.  Finally the challenge led me to consider a linear-algebraic solution, and whether
+    that could be exploited for zero-sum cyclic games with infinite players, or
+    infinite choices
+    Some investigation suggests yes, and I'd like to build that function out
+    in the future.
+
+*/
+
