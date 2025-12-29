@@ -28,7 +28,7 @@ function fuelToAdd(currentGallons, requiredLiters) {
 /* 
 === Why build it this way? ===
 The only catch in this challenge is that one test fails with Math.round().
-This meant an implied requirement to always round up or down wasn't stated
-in the brief.
+This meant an implied requirement to always round up was perhaps described
+by "You can only add whole gallons."
 A quick correction to Math.ceil() passes all tests.
 */
