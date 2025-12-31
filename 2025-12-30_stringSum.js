@@ -36,9 +36,9 @@ The ideal output of this function would be an array of numbers which is then be 
 Regular expression like /\d+/g. The regex worked in snippets, but not in free code camp's test environment. Some type protection is
 required.
 */
-function(string) {
+function someOtherSummer(string) {
   let array = string.match(/\d+/g);
-  return array.reduce((sum, num) => {return sum + num;);
+  return array.reduce((sum, num) => { return sum + num; });
 }
 /*
 === Design spec === 
