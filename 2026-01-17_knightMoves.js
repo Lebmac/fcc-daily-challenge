@@ -72,7 +72,7 @@ a 3x3 grid:
 
 Table N(X,Y) describing number of moves available to a knight.
 	|| 1 | 2 | 3 | 4 |  < X
-  * ================
+    * ================
 1	|| 2 | 3 | 4 | 4 |
 2	|| 3 | 4 | 6 | 6 |
 3	|| 4 | 6 | 8 | 8 |
@@ -85,13 +85,13 @@ because the grid is symmetrical.
 
 At this point I came to realise that when multiplying X*Y, some
 offset value existed between the XY product, and the number of available
-moves. Consider #Moves = X*Y + F(X,Y), where F() is derived from the
+moves. Consider N(X,Y) = X*Y + F(X,Y), where F() is derived from the
 lookup table below, and represents the difference between XY and the
 corresponding output from the table above.
 
 F(X,Y) =
 	|| 1 | 2 |  3 |  < X
-  * =============
+    * =============
 1	|| 1 | 1 |  1 |
 2	||   | 0 |  0 |
 3	||   |   | -1 |
@@ -104,17 +104,17 @@ was not true when X increased by 1 for Y=1 F(X,1)=1. This pointed to
 a direct and linear relationship with the smallest of X, Y.
 Lets trial... F'(X,Y) = X*Y - min(X,Y):
 
-F(X,Y) =
+F'(X,Y) =
 	|| 1 | 2 | 3 |  < X
-  * ============
+    * ============
 1	|| 0 | 1 | 2 |
 2	||   | 2 | 4 |
 3	||   |   | 6 |
 ^  
 Y
 
-Comparison to table M(X,Y) reveals an exact offset of 2 for
-all indices. Therefore M(X,Y) = X*Y - min(X,Y) + 2.
+Comparison to table N(X,Y) reveals an exact offset of 2 for
+all indices. Therefore N(X,Y) = X*Y - min(X,Y) + 2.
 
 === Part 3: Map 3x3 grid to 8x8 symmetry ===
 For this problem I would need to map inputs X and Y, which both
