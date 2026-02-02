@@ -14,15 +14,11 @@ If the value is anything else (the groundhog did not show up), return "No predic
 */
 
 function groundhogDayPrediction(appearance) {
-  const msg = [
-    "It's going to be an early spring.",
-    "Looks like we'll have six more weeks of winter.",
-    "No prediction this year."
-  ];
+  const msg = new Map([
+    [appearance, "No prediction this year."],
+    [true,  "Looks like we'll have six more weeks of winter."],
+    [false, "It's going to be an early spring."],
+  ]);
 
-  let select = 2;
-  if (typeof appearance === "boolean")
-    select = Number(appearance);
-    
-  return msg[select];
+  return msg.get(appearance);
 }
