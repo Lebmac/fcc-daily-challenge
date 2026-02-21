@@ -60,7 +60,9 @@ function scoreCurling(house) {
 
 function pivotHouseToRings(house) {
   return [
-    [house[2][2]],
+    [
+      house[2][2]
+    ],
     [
       ...house[1].filter((_,i) => i>=1 && i<=3),
       ...house[2].filter((_,i) => i==1 || i==3),
@@ -78,8 +80,6 @@ function pivotHouseToRings(house) {
 
 function countStones(arr) {
   return arr.reduce((count, stone) => {
-    return stone === "." ? 
-           count : 
-           { ...count, [stone]: count[stone] += 1, };
+    return { ...count, [stone]: count[stone] += 1, };
   }, { R: 0, Y: 0, });
 }
